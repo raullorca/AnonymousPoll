@@ -5,19 +5,14 @@ using WebApi.Models;
 
 namespace WebApi.Data
 {
-    public interface IText2ListStudents
+    public class Text2ListStudents : Text2List, IText2ListStudents
     {
-        string LoadFile(string path);
-        IQueryable<Student> ToStudents(string value);
-    }
-    public class Text2ListStudents : Text2List,IText2ListStudents
-    {
-        const int positionName = 0;
-        const int positionGender = 1;
-        const int positionAge = 2;
-        const int positionStudy = 3;
-        const int positionAcademicYear = 4;
-        const int fieldsQuantity = 5;
+        private const int positionName = 0;
+        private const int positionGender = 1;
+        private const int positionAge = 2;
+        private const int positionStudy = 3;
+        private const int positionAcademicYear = 4;
+        private const int fieldsQuantity = 5;
 
         public string LoadFile(string path)
         {
@@ -43,7 +38,7 @@ namespace WebApi.Data
                     student = new Student
                     {
                         Name = SetString(item, positionName),
-                        Gender = SetGender(item,positionGender),
+                        Gender = SetGender(item, positionGender),
                         Age = SetNumeric(item, positionAge),
                         Study = SetString(item, positionStudy),
                         AcademicYear = SetNumeric(item, positionAcademicYear)
@@ -54,7 +49,5 @@ namespace WebApi.Data
 
             return studentList.AsQueryable();
         }
-
-
     }
 }

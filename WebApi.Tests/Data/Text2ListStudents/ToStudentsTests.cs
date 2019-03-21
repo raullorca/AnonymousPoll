@@ -1,16 +1,17 @@
-﻿using System.Linq;
+﻿using FluentAssertions;
+using System.Linq;
 using System.Text;
-using Xunit;
-using FluentAssertions;
 using WebApi.Data;
 using WebApi.Models;
+using Xunit;
 
 namespace WebApi.Tests.Data.Text2ListStudents
 {
     public class ToStudentsTests
     {
-        readonly IText2ListStudents service;
-        readonly Student studentExpected = new Student
+        private readonly IText2ListStudents service;
+
+        private readonly Student studentExpected = new Student
         {
             Name = "Peter Parker",
             Gender = "M",
@@ -36,7 +37,6 @@ namespace WebApi.Tests.Data.Text2ListStudents
         [Fact]
         public void When_SendMultiplesCorrectStructure_Then_ReturnCorrectListModels()
         {
-
             var studentsText = new StringBuilder();
             studentsText.AppendLine("Peter Parker,M,26,biochemistry,2");
             studentsText.AppendLine("Jean Grey,F,28,psychology,2");

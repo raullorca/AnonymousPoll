@@ -91,6 +91,10 @@
     <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\SurveyController.cs" />
+    <Compile Include="Data\IStudentRepository.cs" />
+    <Compile Include="Data\ISurveyRepository.cs" />
+    <Compile Include="Data\IText2ListStudents.cs" />
+    <Compile Include="Data\IText2ListSurvey.cs" />
     <Compile Include="Data\StudentRepository.cs" />
     <Compile Include="Data\SurveyRepository.cs" />
     <Compile Include="Data\Text2List.cs" />
@@ -102,6 +106,7 @@
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Survey.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ISurveyService.cs" />
     <Compile Include="Services\SurveyService.cs" />
   </ItemGroup>
   <ItemGroup>

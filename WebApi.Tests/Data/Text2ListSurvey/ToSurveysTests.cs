@@ -1,9 +1,6 @@
 ﻿using FluentAssertions;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using WebApi.Data;
 using WebApi.Models;
 using Xunit;
@@ -12,8 +9,9 @@ namespace WebApi.Tests.Data.Text2ListSurvey
 {
     public class ToSurveysTests
     {
-        readonly IText2ListSurvey service;
-        readonly Survey surveyExpected = new Survey
+        private readonly IText2ListSurvey service;
+
+        private readonly Survey surveyExpected = new Survey
         {
             Gender = "M",
             Age = 26,
@@ -39,7 +37,6 @@ namespace WebApi.Tests.Data.Text2ListSurvey
         [Fact]
         public void When_SendMultiplesCorrectStructure_Then_ReturnCorrectListModels()
         {
-
             var surveyText = new StringBuilder();
             surveyText.AppendLine("2");
             surveyText.AppendLine("M,26,biochemistry,2");
@@ -69,12 +66,10 @@ namespace WebApi.Tests.Data.Text2ListSurvey
         [InlineData("M,26,biochemistry,-3", "Value must be greater than zero")]
         public void When_SendIncorrectValue_Then_ReturnThrowException(string surveyText, string messageException)
         {
-            string text = SetNumberLine(1,surveyText);
+            string text = SetNumberLine(1, surveyText);
             var exception = Assert.Throws<System.IO.FileLoadException>(() => service.ToSurveys(text));
             exception.Message.Should().Be(messageException);
         }
-
-
 
         [Theory]
         [InlineData("genre,age,study", "Structure line isn't correct")]

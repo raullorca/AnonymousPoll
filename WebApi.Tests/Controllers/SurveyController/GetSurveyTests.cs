@@ -1,10 +1,9 @@
 ﻿using FluentAssertions;
-using System.Text;
-using WebApi.Services;
-using Xunit;
 using Moq;
 using System.Web.Http.Results;
 using WebApi.Data;
+using WebApi.Services;
+using Xunit;
 
 namespace WebApi.Tests.Controllers.SurveyController
 {
@@ -19,17 +18,12 @@ namespace WebApi.Tests.Controllers.SurveyController
             var text2listSurvey = new Text2ListSurvey();
             var surveyRepository = new SurveyRepository(text2listSurvey);
 
-
             var service = new SurveyService(studentRepository.Object, surveyRepository);
             var controller = new WebApi.Controllers.SurveyController(service);
-          
 
             var result = controller.GetSurvey(FakeValues.Surveys);
             var content = result as OkNegotiatedContentResult<string>;
             content.Content.Should().Be(FakeValues.Cases);
         }
-
-       
-
     }
 }

@@ -4,13 +4,9 @@ using WebApi.Models;
 
 namespace WebApi.Data
 {
-    public interface IStudentRepository
-    {
-        IQueryable<Student> GetAll();
-    }
     public class StudentRepository : IStudentRepository
     {
-        IText2ListStudents _text2ListStudents;
+        private IText2ListStudents _text2ListStudents;
 
         public StudentRepository(IText2ListStudents text2ListStudents)
         {
@@ -24,7 +20,5 @@ namespace WebApi.Data
             var students = _text2ListStudents.ToStudents(value);
             return students;
         }
-
-        
     }
 }

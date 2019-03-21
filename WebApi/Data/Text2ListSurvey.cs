@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Web;
 using WebApi.Models;
 
 namespace WebApi.Data
 {
-    public interface IText2ListSurvey
-    {
-        IQueryable<Survey> ToSurveys(string value);
-    }
     public class Text2ListSurvey : Text2List, IText2ListSurvey
     {
-        const int positionGender = 0;
-        const int positionAge = 1;
-        const int positionStudy = 2;
-        const int positionAcademicYear = 3;
-        const int fieldsQuantity = 4;
+        private const int positionGender = 0;
+        private const int positionAge = 1;
+        private const int positionStudy = 2;
+        private const int positionAcademicYear = 3;
+        private const int fieldsQuantity = 4;
 
         public IQueryable<Survey> ToSurveys(string value)
         {

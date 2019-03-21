@@ -28,8 +28,6 @@ namespace WebApi.Data
             return int.Parse(value);
         }
 
-
-
         protected void ValidateString(string value)
         {
             if (string.IsNullOrWhiteSpace(value))

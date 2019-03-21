@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xunit;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Moq;
 using WebApi.Data;
-using WebApi.Models;
+using Xunit;
 
 namespace WebApi.Tests.Services.SurveyServices
 {
@@ -26,9 +20,6 @@ namespace WebApi.Tests.Services.SurveyServices
             var results = service.GetResults(FakeValues.Surveys);
 
             results.Should().Be(FakeValues.Cases);
-
         }
-
-        
     }
 }

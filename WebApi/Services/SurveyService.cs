@@ -1,19 +1,14 @@
-﻿using WebApi.Data;
-using System.Linq;
+﻿using System.Linq;
 using System.Text;
+using WebApi.Data;
 using WebApi.Models;
 
 namespace WebApi.Services
 {
-    public interface ISurveyService
-    {
-        string GetResults(string data);
-    }
-
     public class SurveyService : ISurveyService
     {
-        IStudentRepository _studentRepository;
-        ISurveyRepository _surveyRepository;
+        private IStudentRepository _studentRepository;
+        private ISurveyRepository _surveyRepository;
 
         public SurveyService(IStudentRepository studentRepository, ISurveyRepository surveyRepository)
         {

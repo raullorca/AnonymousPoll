@@ -7,7 +7,6 @@ namespace WebApi.Tests
 {
     public static class FakeValues
     {
-
         public static string Surveys
         {
             get
@@ -99,4 +98,3 @@ namespace WebApi.Tests
         }
     }
 }
-

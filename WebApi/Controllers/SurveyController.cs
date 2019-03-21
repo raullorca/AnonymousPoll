@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using WebApi.Services;
 
@@ -8,8 +6,11 @@ namespace WebApi.Controllers
 {
     public class SurveyController : ApiController
     {
-        ISurveyService _surveyService;
-        public SurveyController() { }
+        private ISurveyService _surveyService;
+
+        public SurveyController()
+        {
+        }
 
         public SurveyController(ISurveyService surveyService)
         {
@@ -29,6 +30,5 @@ namespace WebApi.Controllers
                 return InternalServerError(e);
             }
         }
-
     }
 }
