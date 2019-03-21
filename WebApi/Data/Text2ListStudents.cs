@@ -16,6 +16,13 @@ namespace WebApi.Data
 
         public string LoadFile(string path)
         {
+            if (!File.Exists(path))
+            {
+                throw new FileNotFoundException(@"File not found
+                The path and name of the file can be found in web.config
+                in key *studentsFile*
+                by default it is located in c:\resources\students");
+            }
             return File.ReadAllText(path);
         }
 

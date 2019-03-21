@@ -98,6 +98,15 @@ namespace WebApi.Tests.Data.Text2ListSurvey
             exception.Message.Should().Be("NumberLine wrong");
         }
 
+        [Fact]
+        public void When_SendNumberLineGreaterThan100_Then_ReturnThrowException()
+        {
+            var surveyText = "M,26,biochemistry,2";
+            var text = SetNumberLine(101, surveyText);
+            var exception = Assert.Throws<System.IO.FileLoadException>(() => service.ToSurveys(text));
+            exception.Message.Should().Be("NumberLine too long");
+        }
+
         private string SetNumberLine(int quantity, string surveyText)
         {
             var text = new StringBuilder();

@@ -8,10 +8,6 @@ namespace WebApi.Controllers
     {
         private ISurveyService _surveyService;
 
-        public SurveyController()
-        {
-        }
-
         public SurveyController(ISurveyService surveyService)
         {
             _surveyService = surveyService;

@@ -33,6 +33,10 @@ namespace WebApi.Data
                             GenerateThrow("NumberLine not defined");
                         }
                         cases = int.Parse(line);
+                        if (cases > 100)
+                        {
+                            GenerateThrow("NumberLine too long");
+                        }
                         continue;
                     }
                     var item = line.Split(',');
