@@ -9,11 +9,13 @@ namespace WebApi.Services
     {
         private IStudentRepository _studentRepository;
         private ISurveyRepository _surveyRepository;
+        private IQueryable<Student> _students;
 
         public SurveyService(IStudentRepository studentRepository, ISurveyRepository surveyRepository)
         {
             _studentRepository = studentRepository;
             _surveyRepository = surveyRepository;
+            _students = _studentRepository.GetAll();
         }
 
         public string GetResults(string data)
@@ -36,7 +38,7 @@ namespace WebApi.Services
 
         private IQueryable<Student> GetNames(Survey survey)
         {
-            return _studentRepository.GetAll()
+            return _students
                 .Where(x => x.AcademicYear == survey.AcademicYear &&
                             x.Age == survey.Age &&
                             x.Gender == survey.Gender &&
